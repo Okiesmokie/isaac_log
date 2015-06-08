@@ -4,7 +4,7 @@
 #include <cstdio>
 
 void CallbackFunction() {
-  printf("CallbackFunction() called\n");
+  ::printf("CallbackFunction() called\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -15,7 +15,14 @@ int main(int argc, char *argv[]) {
 
   log_reader.BeginReading();
 
-  while (true) { }
+  while (true) {
+    char c = ::getc(::stdin);
+
+    if (c == 'q') {
+      log_reader.TerminateThread();
+      break;
+    }
+  }
 
   return 0;
 }

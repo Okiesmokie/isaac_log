@@ -29,6 +29,8 @@ class IsaacLog {
   // stored in `last_error_message_`
   bool BeginReading();
 
+  bool TerminateThread() { terminate_thread_ = true; }
+
   // Callback setting methods
   void set_item_pickup_callback(
       std::function<void()> item_pickup_callback) {
@@ -50,6 +52,7 @@ class IsaacLog {
   std::string log_filename_;
 
   std::atomic<bool> thread_running_;
+  std::atomic<bool> terminate_thread_;
   std::thread reading_thread_;
 
   void ReadingThread();

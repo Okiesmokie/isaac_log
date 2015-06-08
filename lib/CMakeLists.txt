@@ -2,7 +2,8 @@ set(ISAAC_LOG_SOURCES
   isaac_log.cc)
 
 set(ISAAC_LOG_HEADERS
-  ../include/isaac_log/isaac_log.h)
+  ../include/isaac_log/isaac_log.h
+  ../include/isaac_log/error_messages.h)
 
 add_library(isaac_log ${ISAAC_LOG_SOURCES} ${ISAAC_LOG_HEADERS})
 
